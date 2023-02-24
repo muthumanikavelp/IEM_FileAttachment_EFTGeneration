@@ -1,0 +1,128 @@
+﻿@model IEM.Areas.FLEXISPEND.Models.ERATemplate
+@{
+    int icount = 0;
+}
+<html>
+<head>
+    <style>
+        #tblsig > tbody > tr > td {
+            margin: 0px !important;
+            white-space: normal;
+            word-break: break-all;
+        }
+
+        #tbldet > tbody > tr > td, #tbldet > thead > tr > th {
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<body style="font-family:Verdana; font-size:13px !important;">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    @if (Model != null)
+    {
+        <div style="width:100%; text-align:right; padding-right:20px;">
+            Date:@Model.Date<br />
+            @Model.LetterNo
+        </div><br /><br />
+        <div style="width:100%; white-space: normal;
+            word-break: break-all;">
+            To,<br />
+            @*@Model.BankAddress*@
+            The Branch Manager<br />
+            CITI Bank<br />
+            Club House Road,<br />
+            Chennai - 2.
+        </div><br /><br />
+        <div>
+            <span>Dear Sir / Madam,</span><br /><br />
+            <span>Sub: Employee Reimbursement Credits</span><br /><br />
+            <p style="text-indent:25px; text-align:justify;">
+                We would like to do Employee Reimbursement Account (ERA) transfer for our Employees. Please debit our @System.Configuration.ConfigurationManager.AppSettings["CompanyFullName"] ERA A/c No. @Model.CompanyAccountNo for a total sum Rs. @Model.Amount (@Model.AmountInWords) credit our employees as per the annexure attached.
+            </p>
+            <p style="text-indent:25px; text-align:justify;">
+                We certify that the account numbers, amounts and attendant names of the beneficiaries mentioned in the soft copy will be same as those mentioned in the hard copy and the Bank will not be responsible for any mismatch between the hard copy and the data in the floppy and / or any error in credits arising out of any such mismatch
+            </p><br /><br />
+        </div>
+        <div style="width:100%;">
+            <table id="tblsig" width="100%" style="font-size: 13px;">
+                <tr>
+                    <td style="width:50%;">For @System.Configuration.ConfigurationManager.AppSettings["CompanyFullName"]</td>
+                    <td style="width:50%; text-align:right;">For @System.Configuration.ConfigurationManager.AppSettings["CompanyFullName"]</td>
+                </tr>
+                <tr>
+                    <td style="line-height:50px;"><br /></td>
+                    <td style="line-height:50px;"><br /></td>
+                </tr>
+
+                <tr>
+                    <td style="width:50%;">Authorized Signatory</td>
+                    <td style="width:50%; text-align:right;">Authorized Signatory</td>
+                </tr>
+            </table>
+        </div>
+        <p style="page-break-before:always"></p>
+        <br />
+        <br />
+    <!-- Break Page -->
+        if (@Model.DetailArray.Count > 0)
+        {
+            <div style="margin-top:40px;">
+                <table style="border-top: 1px solid black; border-left: 1px solid black; font-size:13px;" id="tbldet" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width:10%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                                Sl No
+                            </th>
+                            <th style="width:15%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                                Emp ID
+                            </th>
+                            <th style="width:30%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                                Emp Name
+                            </th>
+                            <th style="width:25%; max-width:150px; border-bottom: 1px solid black; border-right: 1px solid black;">
+                                Acc No
+                            </th>
+                            <th style="width:15%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                                Amount
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var innerDet in @Model.DetailArray)
+                        {
+                            <tr>
+                                <td align="center" style="border-bottom: 1px solid black; border-right: 1px solid black;">@(++icount)</td>
+                                <td style="border-bottom: 1px solid black; border-right: 1px solid black;">&nbsp;@innerDet.VendorCode</td>
+                                <td style="border-bottom: 1px solid black; border-right: 1px solid black;">&nbsp;@innerDet.NameOfVendor</td>
+                                <td style="border-bottom: 1px solid black; border-right: 1px solid black;">&nbsp;@innerDet.BankAccountNo</td>
+                                <td align="right" style="border-bottom: 1px solid black; border-right: 1px solid black;">&nbsp;@innerDet.Amount</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th align="right" style="border-bottom: 1px solid black; border-right: 1px solid black;" colspan="4">
+                                Total
+                            </th>
+                            <th align="right" style="border-bottom: 1px solid black; border-right: 1px solid black;">
+                                @Model.Amount
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+    }
+</body>
+</html>
+
+<script type="text/javascript">
+    window.print()
+    window.focus()
+</script>

@@ -1,0 +1,1407 @@
+﻿@model Upload.Models.MemoDetail
+@{
+    int icount = 0;
+}
+<style type="text/css">
+    #tblsig > tbody > tr > td {
+        margin: 0px !important;
+        white-space: normal;
+        word-break: break-all;
+    }
+
+    #tbldet > tbody > tr > td, #tbldet > thead > tr > th {
+        border-bottom: 1px solid #ddd;
+    }
+
+
+    P {
+        margin-bottom: 0in;
+        direction: ltr;
+        color: #000000;
+        text-align: justify;
+        widows: 2;
+        orphans: 2;
+    }
+
+        P.western {
+            font-family: "Arial", sans-serif;
+            font-size: 11pt;
+            so-language: en-US;
+        }
+
+        P.cjk {
+            font-family: "Times New Roman", serif;
+            font-size: 11pt;
+        }
+
+        P.ctl {
+            font-family: "Arial", sans-serif;
+            font-size: 9pt;
+            so-language: ar-SA;
+        }
+
+    H1 {
+        margin-top: 0in;
+        margin-bottom: 0in;
+        direction: ltr;
+        color: #000000;
+        text-align: center;
+        widows: 2;
+        orphans: 2;
+    }
+
+        H1.western {
+            font-family: "Arial", sans-serif;
+            font-size: 11pt;
+            so-language: en-US;
+        }
+
+        H1.cjk {
+            font-family: "Times New Roman", serif;
+            font-size: 11pt;
+        }
+
+        H1.ctl {
+            font-family: "Arial", sans-serif;
+            font-size: 9pt;
+            so-language: ar-SA;
+        }
+
+    A:link {
+        color: #0000ff;
+    }
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+    @*<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+    <meta name="GENERATOR" content="LibreOffice 4.1.6.2 (Linux)">
+    <meta name="AUTHOR" content="HDFC">
+    <meta name="CREATED" content="20130918;113100000000000">
+    <meta name="CHANGEDBY" content="emp10052">
+    <meta name="CHANGED" content="20141119;123500000000000">*@
+</head>
+<body text="#000000" link="#0000ff" dir="LTR" style="border: 1.50pt double #FFF; padding-top: 0in; padding-bottom: 0in; padding-left: 0.06in; padding-right: 0in">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    @if (Model != null)
+    {
+        <div type="HEADER">
+            <p align="LEFT" style="margin-bottom: 0.15in">
+            </p>
+        </div>
+
+        <p class="western" align="JUSTIFY"><font face="Times New Roman, serif"><font size="3"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">	</font></font><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><b>@Model.MemoNo</b></font></font></font></font></p>
+
+        <dl style="margin-top: 0px;margin-bottom: 4px;">
+            <dd>
+                <table width="640" cellpadding="3" cellspacing="0">
+                    <colgroup>
+                        <col width="114">
+                        <col width="58">
+                        <col width="4">
+                        <col width="282">
+                        <col width="110">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td width="114" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p align="LEFT">
+                                    <font size="1" style="font-size: 8pt">
+                                        <b>
+                                            Branch Code
+                                            / Name
+                                        </b>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="58" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-right: -0.2in"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">@Model.BranchDetails</font></font></p>
+                            </td>
+                            <td width="4" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-right: -0.2in">
+                                    <br>
+                                </p>
+                            </td>
+                            <td colspan="2" width="406" bgcolor="#bfbfbf" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="CENTER" style="margin-right: -0.2in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            <b>
+                                                Maximum
+                                                Limit for NEFT Transaction
+                                            </b>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114" height="3" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p align="LEFT"><font size="1" style="font-size: 8pt"><b>Date</b></font></p>
+                            </td>
+                            <td width="58" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-right: -0.2in"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">@Model.MemoDate</font></font></p>
+                            </td>
+                            <td width="4" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-right: -0.2in">
+                                    <br>
+                                </p>
+                            </td>
+                            <td width="282" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p align="LEFT" style="font-weight: normal">
+                                    <font size="1" style="font-size: 8pt">
+                                        HDFC
+                                        Bank Customer
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="110" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p align="CENTER" style="font-weight: normal">
+                                    <font size="1" style="font-size: 8pt">
+                                        No
+                                        Limit
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114" height="2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p align="LEFT"><font size="1" style="font-size: 8pt"><b>Time</b></font></p>
+                            </td>
+                            <td width="58" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-right: -0.2in"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">@Model.MemoTime</font></font></p>
+                            </td>
+                            <td width="4" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-right: -0.2in">
+                                    <br>
+                                </p>
+                            </td>
+                            <td width="282" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p align="CENTER" style="font-weight: normal">
+                                    <font size="1" style="font-size: 8pt">
+                                        Non
+                                        HDFC Bank Customer &amp; Indo-Nepal NEFT Remittance
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="110" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p align="CENTER" style="font-weight: normal">
+                                    <font size="1" style="font-size: 8pt">
+                                        Up
+                                        to INR 50,000/-
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+
+        <h1 class="western" style="margin-left: 0.58in; margin-right: 0.35in; line-height: 115%; text-align:left;">
+            <font size="1" style="font-size: 8pt">
+                <span style="font-weight: normal">
+                    You
+                    are requested to remit the proceeds as per details below through RTGS 
+                    @if(@Model.Mode == "R"){ <span style="border:1px solid black;">&nbsp;X&nbsp;</span> }
+                    else
+                    {
+                        <span style="border:1px solid black;">&nbsp;&nbsp;&nbsp;</span>
+                    }
+                      /  NEFT @if (@Model.Mode == "N")
+                    { <span style="border:1px solid black;">&nbsp;X&nbsp;</span> }
+                    else
+                    {
+                        <span style="border:1px solid black;">&nbsp;&nbsp;&nbsp;</span>
+                    }.
+                </span>
+            </font><font size="1" style="font-size: 8pt">
+                <i>
+                    (Tick
+                </i>
+            </font><font face="ZapfDingbats, fantasy"><font size="1" style="font-size: 8pt"><i></i></font></font><font size="1" style="font-size: 8pt">
+                <i>
+                    the appropriate Box
+                </i>
+            </font><font size="1" style="font-size: 8pt">
+                <i>
+                    )
+                    .
+                </i>
+            </font>
+        </h1>
+        <h1 class="western" style="margin-left: 0.58in; margin-right: 0.35in; line-height: 115%; text-align:left;">
+            <font size="1" style="font-size: 8pt">
+                <span style="font-weight: normal">
+                    Attaching
+                    Cheque No. ________________ for Rs.__________________________. (For
+                    RTGS draw cheque favouring
+                </span>
+            </font><font size="1" style="font-size: 8pt">
+                “HDFC
+                Bank Ltd – RTGS”
+            </font><font size="1" style="font-size: 8pt">
+                <span style="font-weight: normal">
+                    and for NEFT draw cheque favouring
+                </span>
+            </font><font size="1" style="font-size: 8pt">
+                “HDFC
+                Bank Ltd – NEFT”
+            </font><font size="1" style="font-size: 8pt"><span style="font-weight: normal">)</span></font>
+        </h1>
+        <dl style="margin-top: 0px;margin-bottom: 4px;">
+            <dd>
+                <table width="649" cellpadding="3" cellspacing="0">
+                    <colgroup>
+                        <col width="193">
+                        <col width="426">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" width="633" height="2" bgcolor="#d9d9d9" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Beneficiary
+                                            Details
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Beneficiary
+                                            Name
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">@Model.BenName</font></font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Beneficiary
+                                            Account Number
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">@Model.BenAccNo</font></font></p>
+                            </td>
+                        </tr>
+                        @*<tr>
+                                <td width="193" height="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                    <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                        <font face="Arial, sans-serif">
+                                            <font size="1" style="font-size: 8pt">
+                                                Beneficiary
+                                                Account Number
+                                            </font>
+                                        </font>
+                                    </p>
+                                </td>
+                                <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                    <p class="western" align="LEFT"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">&lt;&lt;ACCOUNT_NO&gt;&gt;</font></font></p>
+                                </td>
+                            </tr>*@
+                        <tr>
+                            <td width="193" height="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Beneficiary
+                                            Address
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT"><font face="Times New Roman, serif"><font size="3"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">@Model.BenAddress</font></font></font></font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Beneficiary
+                                            Bank Name &amp; Branch
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">@Model.BenBankname</font></font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Beneficiary
+                                            Bank IFSC Code
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT">
+                                    <table width="100%">
+                                        <tr>
+                                            <td style="text-align:left; padding-right:10px;">
+                                                <font face="Times New Roman, serif">
+                                                    <font size="3">
+                                                        <font face="Arial, sans-serif">
+                                                            <font size="1" style="font-size: 8pt">
+                                                                @Model.BenBankIfscCode
+                                                            </font>
+                                                        </font>
+                                                    </font>
+                                                </font>
+                                            </td>
+                                            <td style="text-align:right;">
+                                                <font face="Times New Roman, serif">
+                                                    <font size="3">
+                                                        <font face="Arial, sans-serif">
+                                                            <font size="1" style="font-size: 8pt">
+                                                                Account Type : Resident 
+                                                                @if (@Model.AccountType == "Resident")
+                                                                { <span style="border:1px solid black;">&nbsp;X&nbsp;</span> }
+                                                                else
+                                                                {
+                                                                    <span style="border:1px solid black;">&nbsp;&nbsp;&nbsp;</span>
+                                                                }
+                                                                / Non Resident 
+                                                                @if (@Model.AccountType == "NonResident")
+                                                                { <span style="border:1px solid black;">&nbsp;X&nbsp;</span> }
+                                                                else
+                                                                {
+                                                                    <span style="border:1px solid black;">&nbsp;&nbsp;&nbsp;</span>
+                                                                }
+                                                            </font>
+                                                        </font>
+                                                    </font>
+                                                </font>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--<font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <font face="Arial, sans-serif">
+                                                <font size="1" style="font-size: 8pt">
+
+                                                </font>
+                                            </font>
+                                        </font>
+                                    </font>-->
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Amount
+                                            (in figures) to be credited
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="JUSTIFY"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">@Model.AmountInFigures</font></font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="4" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Amount
+                                            (in words) to be credited
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="JUSTIFY"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">@Model.AmountInWords</font></font></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+
+
+        <dl style="margin-top: 0px;margin-bottom: 4px;">
+            <dd>
+                <table width="649" cellpadding="3" cellspacing="0">
+                    <colgroup>
+                        <col width="193">
+                        <col width="426">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" width="633" bgcolor="#d9d9d9" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            <b>
+                                                My
+                                                / Our Details (Remitter)
+                                            </b>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Remitter
+                                            (Applicant) Name
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT" style="margin-left: 0.06in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                           &nbsp;  @*@Model.RemitterName*@ @System.Configuration.ConfigurationManager.AppSettings["CompanyFullName"]
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Remitter
+                                            Account Number
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT" style="margin-left: 0.06in">
+                                    <font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <font face="Arial, sans-serif">
+                                                <font size="1" style="font-size: 8pt"> &nbsp;@*@Model.RemitterAccNo*@ 00600310011700</font>
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="8" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Cash
+                                            Deposited (Non HDFC Bank Customer)
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT" style="margin-left: 0.06in">
+                                    <font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <font face="Arial, sans-serif">
+                                                <font size="1" style="font-size: 8pt"> &nbsp;@Model.RemitterCashDeposited</font>
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Mobile
+                                            / Phone Number of Remitter ( Mandatory)
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT" style="margin-left: 0.06in">
+                                    <font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">
+                                                @if (@Model.Mode == "R")
+                                                {
+                                                   <span> 022 42241492/ 022 42241493 </span> 
+                                                }
+                                                else
+                                                {
+                                                    <span> 044 42886630/ 044 42886639 </span>
+                                                }
+                                                </font></font>
+                                            <font face="Arial, sans-serif">
+                                                <font size="1" style="font-size: 8pt">
+                                                    <b>
+                                                        E-Mail
+                                                        Id: 
+                                                        @if (@Model.Mode == "R")
+                                                        {
+                                                            <span style="text-decoration:underline;">FICCtreasuryops@fullertonindia.com</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span style="text-decoration:underline;">expensehelp@fullertonindia.com</span>
+                                                        }
+                                                        
+                                                    </b>
+                                                </font>
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="18" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            Address
+                                            of the Remitter (Mandatory for Non – HDFC Bank Customer)
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT" style="margin-left: 0.06in">
+                                    <font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <font face="Arial, sans-serif">
+                                                <font size="1" style="font-size: 8pt">
+                                                    &nbsp; @*@Model.RemitterAddress*@
+                                                    @if (@Model.Mode == "R")
+                                                    {
+                                                        <span >@System.Configuration.ConfigurationManager.AppSettings["CompanyFullName"],@System.Configuration.ConfigurationManager.AppSettings["MAddress1"], @System.Configuration.ConfigurationManager.AppSettings["MAddress2"], @System.Configuration.ConfigurationManager.AppSettings["MArea"],@System.Configuration.ConfigurationManager.AppSettings["MCity"] .</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span >@System.Configuration.ConfigurationManager.AppSettings["CompanyFullName"],@System.Configuration.ConfigurationManager.AppSettings["LAddress1"], @System.Configuration.ConfigurationManager.AppSettings["LAddress2"], @System.Configuration.ConfigurationManager.AppSettings["LArea"],@System.Configuration.ConfigurationManager.AppSettings["LCity"] .</span>
+                                                    }
+                                                     
+                                                </font>
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="193" height="4" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Remarks</font></font></p>
+                            </td>
+                            <td width="426" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT" style="margin-left: 0.06in">
+                                    <font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <font face="Arial, sans-serif">
+                                                <font size="1" style="font-size: 8pt"> &nbsp;@Model.Remarks</font>
+                                            </font>
+                                        </font>
+                                    </font>
+
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+
+        <!-- START Terms And Condition -->
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.06in; margin-top:0px;">
+            <font face="Arial, sans-serif">
+                <font size="1" style="font-size: 8pt">
+                    <u>
+                        <b>
+                            Terms
+                            &amp; Conditions
+                        </b>
+                    </u>
+                </font>
+            </font>
+        </p>
+
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.35in; margin-top: 0px; ">
+            <font face="Times New Roman, serif">
+                <font size="3">
+                    <font face="Arial, sans-serif">
+                        <font size="1">
+                            *
+                            I / We hereby authorize HDFC Bank Ltd. to carry out the
+                        </font>
+                    </font><font face="Arial, sans-serif"><font size="1"><b>RTGS</b>
+                    @if (@Model.Mode == "R")
+                    { <span style="border:1px solid black;">&nbsp;X&nbsp;</span> }
+                    else
+                    {
+                        <span style="border:1px solid black;">&nbsp;&nbsp;&nbsp;</span>
+                    }
+                    </font></font><font face="Arial, sans-serif">
+                        <font size="1">
+                        </font>
+                    </font><font face="Arial, sans-serif"><font size="1"><b></b></font></font><font face="Arial, sans-serif"><font size="1">/</font></font><font face="Arial, sans-serif"><font size="1">
+                    <b>NEFT</b>
+                    @if (@Model.Mode == "N")
+                    { <span style="border:1px solid black;">&nbsp;X&nbsp;</span> }
+                    else
+                    {
+                        <span style="border:1px solid black;">&nbsp;&nbsp;&nbsp;</span>
+                    }
+                    </font></font><font face="Arial, sans-serif">
+                        <font size="1">
+                        </font>
+                    </font><font face="Arial, sans-serif">
+                        <font size="1">
+                            <b>
+                                
+                            </b>
+                        </font>
+                    </font><font face="Arial, sans-serif">
+                        <font size="1">
+                            transaction
+                            as per details mentioned above.
+                        </font>
+                    </font><font face="Arial, sans-serif">
+                        <font size="1">
+                            <i>
+                                <b>
+                                    (Tick
+                                </b>
+                            </i>
+                        </font>
+                    </font><font face="ZapfDingbats, fantasy"><font size="1"><i><b></b></i></font></font><font face="Arial, sans-serif">
+                        <font size="1">
+                            <i>
+                                <b>
+                                    the appropriate Box)
+                                </b>
+                            </i>
+                        </font>
+                    </font>
+                </font>
+            </font>
+        </p>
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.35in; margin-top: 0px; ">
+            <font face="Arial, sans-serif">
+                <font size="1">
+                    * I / We hereby agree
+                    that the aforesaid details including the IFSC code and the
+                    beneficiary account are correct.
+                </font>
+            </font>
+        </p>
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.35in; margin-top: 0px; ">
+            <font face="Arial, sans-serif">
+                <font size="1">
+                    * I / We further
+                    acknowledge that HDFC Bank accepts no liability for any consequences
+                    arising out of erroneous details provided by me/us.
+                </font>
+            </font>
+        </p>
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.35in; margin-top: 0px; ">
+            <font face="Arial, sans-serif">
+                <font size="1">
+                    * I / We agree that the
+                    credit will be affected solely on the beneficiary account number
+                    information and beneficiary name particulars will not be used for the
+                    same.
+                </font>
+            </font>
+        </p>
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.35in; margin-top: 0px; ">
+            <font face="Arial, sans-serif">
+                <font size="1">
+                    * I / We authorize the
+                    bank to debit my / our account with the charges plus taxes as
+                    applicable for this transaction.
+                </font>
+            </font>
+        </p>
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.35in; margin-top: 0px; ">
+            <font face="Arial, sans-serif">
+                <font size="1">
+                    * I / We agree that
+                    requests submitted after the cut off time will be sent in next batch
+                    or next working day as applicable.
+                </font>
+            </font>
+        </p>
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.35in; margin-top: 0px; ">
+            <font face="Arial, sans-serif">
+                <font size="1">
+                    * I / We hereby agree &amp;
+                    understand that the RTGS / NEFT request is subject to the RBI
+                    regulations and guidelines governing the same.
+                </font>
+            </font>
+        </p>
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.35in; margin-top: 0px; ">
+            <font face="Times New Roman, serif">
+                <font size="3">
+                    <font face="Arial, sans-serif">
+                        <font size="1">
+                            *
+                            I / We also understand that the remitting Bank shall not be liable
+                            for any loss of damage arising or resulting from delay in
+                            transmission delivery or non-delivery of Electronic message or any
+                            mistake, omission, or error in transmission or delivery thereof or in
+                            deciphering the message from any cause whatsoever or from its
+                            misinterpretation received or the action of the destination Bank or
+                            any act or even beyond control.
+                        </font>
+                    </font>
+                </font>
+            </font>
+        </p>
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.35in; margin-top: 0px;  margin-top: 0px; ">
+            <font face="Arial, sans-serif">
+                <font size="1">
+                    * I/We agree that incase
+                    of NEFT Transaction if we do not have an account with the bank, we
+                    will produce Original identification proof while giving the request.
+                    In case I/We submit form 60, we will also submit the address proof.
+                </font>
+            </font>
+        </p>
+        <p class="western" align="JUSTIFY" style="margin-left: 0.58in; margin-right: 0.35in; margin-top: 0px; ">
+            <font face="Times New Roman, serif">
+                <font size="3">
+                    <font face="Arial, sans-serif">
+                        <font size="1">
+                            *
+                            In case the RTGS and NEFT option is not ticked by us, I / We
+                            authorize you to execute the transaction
+                        </font>
+                    </font><font face="Arial, sans-serif">
+                        <font size="1">
+                            <b>
+                                less
+                                than Rupees Two Lacs through NEFT
+                            </b>
+                        </font>
+                    </font><font face="Arial, sans-serif">
+                        <font size="1">
+                            and
+                        </font>
+                    </font><font face="Arial, sans-serif">
+                        <font size="1">
+                            <b>
+                                greater
+                                than or equal to Rupees Two Lacs through RTGS
+                            </b>
+                        </font>
+                    </font><font face="Arial, sans-serif">
+                        <font size="1">
+                            and debit the charges as applicable.
+                        </font>
+                    </font>
+                </font>
+            </font>
+        </p>
+        <!-- END Terms And Condition -->
+
+        <dl style="margin-top: 0px;margin-bottom: 4px;">
+            <dd>
+                <table width="649" cellpadding="3" cellspacing="0">
+                    <colgroup>
+                        <col width="100">
+                        <col width="519">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td width="100" height="71" bgcolor="#d9d9d9" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1" style="font-size: 8pt">
+                                            <b>
+                                                Signature
+                                                of Authorized Signatory
+                                            </b>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="519" valign="BOTTOM" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="LEFT" style="margin-left: 0.06in">
+                                    <br>
+                                </p>
+                                <p class="western" align="LEFT" style="margin-left: 0.06in">
+                                    <font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <font color="#000000">
+                                                <font face="Arial, sans-serif">
+                                                    <font size="1" style="font-size: 8pt">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td style="text-align:left; padding-right:10px;">
+                                                                    ____________________
+                                                                </td>
+                                                                <td style="text-align:center; padding-right:10px;">
+                                                                    ____________________
+                                                                </td>
+                                                                <td style="text-align:right;">
+                                                                    ____________________
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </font>
+                                                </font>
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                                <p class="western" align="LEFT" style="margin-left: 0.06in; margin-top:0px;">
+                                    <font color="#000000">
+                                    </font><font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <font color="#000000"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">1</font></font></font><font color="#000000"><sup><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">st</font></font></sup></font>
+                                                        <font color="#000000">
+                                                            <font face="Arial, sans-serif">
+                                                                <font size="1" style="font-size: 8pt">
+                                                                    Signatory
+                                                                </font>
+                                                            </font>
+                                                        </font>
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        <font color="#000000"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2</font></font></font><font color="#000000"><sup><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">nd</font></font></sup></font>
+                                                        <font color="#000000">
+                                                            <font face="Arial, sans-serif">
+                                                                <font size="1" style="font-size: 8pt">
+                                                                    Signatory
+                                                                </font>
+                                                            </font>
+                                                        </font>
+                                                    </td>
+                                                    <td style="text-align:center;">
+                                                        <font color="#000000"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">3</font></font></font><font color="#000000"><sup><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">rd</font></font></sup></font>
+                                                        <font face="Arial, sans-serif">
+                                                            <font size="1" style="font-size: 8pt">
+                                                                Signatory
+                                                            </font>
+                                                        </font>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </font>
+                                    </font>
+                                </p>
+
+
+
+                                <p class="western" style="margin-left: 0.06in; text-align:center; margin-top:0px;">
+                                    <font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <font color="#bfbfbf"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">				</font></font></font><font color="#000000">
+                                                <font face="Arial, sans-serif">
+                                                    <font size="1" style="font-size: 8pt;">
+                                                        <i>
+                                                            Please
+                                                            affix stamp wherever applicable
+                                                        </i>
+                                                    </font>
+                                                </font>
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+
+        <dl style="margin-top: 0px;margin-bottom: 4px;">
+            <dd>
+                <table width="649" cellpadding="3" cellspacing="0">
+                    <colgroup>
+                        <col width="265">
+                        <col width="98">
+                        <col width="154">
+                        <col width="74">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" width="633" bgcolor="#d9d9d9" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <h1 class="western" style="margin-left: 0.06in">
+                                    <font size="1" style="font-size: 8pt">
+                                        Branch
+                                        Use Only
+                                    </font>
+                                </h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="265" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1">
+                                            Transaction
+                                            Reference Number
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td colspan="2" width="266" valign="BOTTOM" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in">
+                                    <br>
+                                </p>
+                            </td>
+                            <td rowspan="5" width="74" valign="BOTTOM" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="CENTER">
+                                    <font color="#bfbfbf">
+                                        <font face="Arial, sans-serif">
+                                            <font size="1">
+                                                Branch
+                                                Stamp, Date &amp; Sign
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="265" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1">
+                                            Transaction
+                                            Inputted by
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="98" valign="BOTTOM" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in">
+                                    <font color="#bfbfbf">
+                                        <font face="Arial, sans-serif">
+                                            <font size="1">
+                                                Employee
+                                                Code
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="154" valign="BOTTOM" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in"><font color="#bfbfbf"><font face="Arial, sans-serif"><font size="1">Signature</font></font></font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="265" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1">
+                                            Transaction
+                                            Authorized by
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="98" valign="BOTTOM" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in">
+                                    <font color="#bfbfbf">
+                                        <font face="Arial, sans-serif">
+                                            <font size="1">
+                                                Employee
+                                                Code
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="154" valign="BOTTOM" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in"><font color="#bfbfbf"><font face="Arial, sans-serif"><font size="1">Signature</font></font></font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="265" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <font face="Arial, sans-serif">
+                                                <font size="1">
+                                                    Transaction
+                                                    Authorized by (2
+                                                </font>
+                                            </font><sup><font face="Arial, sans-serif"><font size="1">nd</font></font></sup><font face="Arial, sans-serif">
+                                                <font size="1">
+                                                    level) (for amount  &gt; Rs. 5 lacs)
+                                                </font>
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="98" valign="BOTTOM" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in">
+                                    <font color="#bfbfbf">
+                                        <font face="Arial, sans-serif">
+                                            <font size="1">
+                                                Employee
+                                                Code
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="154" valign="BOTTOM" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in"><font color="#bfbfbf"><font face="Arial, sans-serif"><font size="1">Signature</font></font></font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="265" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT" style="margin-left: -0.01in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1">
+                                            KYC
+                                            documentation done by (only for Non-HDFC Bank Customers)
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="98" valign="BOTTOM" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in">
+                                    <font color="#bfbfbf">
+                                        <font face="Arial, sans-serif">
+                                            <font size="1">
+                                                Employee
+                                                Code
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="154" valign="BOTTOM" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in"><font color="#bfbfbf"><font face="Arial, sans-serif"><font size="1">Signature</font></font></font></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+        <p class="western" align="LEFT" style="margin-left: -0.19in; margin-right: -0.39in">
+            <font face="Times New Roman, serif">
+                <font size="3">
+                    <font face="Arial, sans-serif">
+                        <font size="1" style="font-size: 8pt">
+                            <b>
+                                - -  - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - -
+                                - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                - - -
+                            </b>
+                        </font>
+                    </font>
+                </font>
+            </font>
+        </p>
+        <!--Break Page-->
+        
+        <dl style="margin-top: 0px;margin-bottom: 4px;">
+            <dd>
+                <table width="649" cellpadding="3" cellspacing="0">
+                    <colgroup>
+                        <col width="633">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td width="633" bgcolor="#d9d9d9" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="CENTER" style="margin-left: 0.06in">
+                                    <font face="Arial, sans-serif">
+                                        <font size="1">
+                                            <b>
+                                                Customer
+                                                Acknowledgement
+                                            </b>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="633" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="JUSTIFY" style="margin-top:5px;">
+                                    <font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <font face="Arial, sans-serif">
+                                                <font size="1">
+                                                    Received
+                                                    application for RTGS @if (@Model.Mode == "R")
+                                                    { <span style="border:1px solid black;">&nbsp;X&nbsp;</span> }
+                                                    else
+                                                    {
+                                                        <span style="border:1px solid black;">&nbsp;&nbsp;&nbsp;</span>
+                                                    }
+                                                </font>
+                                            </font><font face="Arial, sans-serif">
+                                                <font size="1">
+                                                    /
+                                                    NEFT @if (@Model.Mode == "N")
+                                                    { <span style="border:1px solid black;">&nbsp;X&nbsp;</span> }
+                                                    else
+                                                    {
+                                                        <span style="border:1px solid black;">&nbsp;&nbsp;&nbsp;</span>
+                                                    }
+                                                </font>
+                                            </font>
+                                            <!--<font face="Arial, sans-serif">
+                                                <font size="1">
+                                                    <b>
+                                                        
+                                                    </b>
+                                                </font>
+                                            </font>-->
+                                            <font face="Arial, sans-serif">
+                                                <font size="1">
+                                                    for
+                                                    an amount of Rs. ____________________ vide cash / cheque number
+                                                    ________________ to be credited to Account Number
+                                                    ________________________________ of
+                                                    _______________________________ Bank with IFSC
+                                                    Code____________________________. Customers will be guided by the
+                                                    Terms and Conditions mentioned in the form. HDFC Bank will accept
+                                                    no liability for any consequences arising out of erroneous
+                                                    details provided by the Customer.
+                                                </font>
+                                            </font>
+                                        </font>
+                                    </font>
+                                </p>
+                                <p class="western" align="JUSTIFY">
+                                    <font face="Times New Roman, serif">
+                                        <font size="3">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td style="width:50%; text-align:left;">
+                                                        <font face="Arial, sans-serif">
+                                                            <font size="1">
+                                                                Date
+                                                                __________________		Time_______________
+                                                            </font>
+                                                        </font>
+                                                    </td>
+                                                    <td style="width:50%; text-align:right;">
+                                                        <font color="#bfbfbf">
+                                                            <font face="Arial, sans-serif">
+                                                                <font size="1">
+                                                                    <u>
+                                                                        _Branch
+                                                                        Stamp  &amp; Sign __
+                                                                    </u>
+                                                                </font>
+                                                            </font>
+                                                        </font>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+        <p style="page-break-before:always"></p>
+        <p class="western" align="JUSTIFY">
+            <br>
+        </p>
+
+        if (@Model.DetailArray != null)
+        {
+            <center>
+                <table width="711" style="border-top: 1px solid #000000; border-left: 1px solid #000000;" cellpadding="3" cellspacing="0">
+                    <colgroup>
+                        <col width="29">
+                        <col width="172">
+                        <col width="121">
+                        <col width="125">
+                        <col width="94">
+                        <col width="84">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td width="29" height="16" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: -0.15in; text-indent: 0.13in">
+                                    <font face="Arial, sans-serif"><font size="2" style="font-size: 9pt"><b>S.No</b></font></font>
+                                </p>
+                            </td>
+                            <td width="172" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER">
+                                    <font face="Arial, sans-serif">
+                                        <font size="2" style="font-size: 9pt">
+                                            <b>
+                                                Name
+                                                of the vendor
+                                            </b>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="121" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER">
+                                    <font face="Arial, sans-serif">
+                                        <font size="2" style="font-size: 9pt">
+                                            <b>
+                                                Bank
+                                                A/C Number
+                                            </b>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="125" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <h1 class="western">
+                                    <font size="2" style="font-size: 9pt">
+                                        Bank Name
+                                    </font>
+                                </h1>
+                            </td>
+                            <td width="94" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <h1 class="western"><font size="2" style="font-size: 9pt">IFSC Code</font></h1>
+                            </td>
+                            <td width="84" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <h1 class="western"><font size="2" style="font-size: 9pt">Amount</font></h1>
+                            </td>
+                        </tr>
+                        @foreach (var innerDet in @Model.DetailArray)
+                        {
+                        <tr>
+                            <td width="29" height="44" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER">
+                                    @(++icount)
+                                </p>
+                            </td>
+                            <td width="172" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT">
+                                    @innerDet.NameOfVendor
+                                </p>
+                            </td>
+                            <td width="121" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT">
+                                    @innerDet.BankAccNo
+                                </p>
+                            </td>
+                            <td width="125" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="LEFT">
+                                    @innerDet.BankName
+                                </p>
+                            </td>
+                            <td width="94" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER">
+                                    @innerDet.IFSCCode
+                                </p>
+                            </td>
+                            <td width="84" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <p class="western" align="RIGHT">
+                                    @innerDet.Amount
+                                </p>
+                            </td>
+                        </tr>
+                        }
+                        <tr>
+                            <td width="29" height="16" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER" style="margin-left: -0.15in; text-indent: 0.13in">
+                                    <font face="Arial, sans-serif"><font size="2" style="font-size: 9pt"><b>&nbsp;</b></font></font>
+                                </p>
+                            </td>
+                            <td width="172" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER">
+                                    <font face="Arial, sans-serif">
+                                        <font size="2" style="font-size: 9pt">
+                                            <b>
+                                                &nbsp;
+                                            </b>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="121" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <p class="western" align="CENTER">
+                                    <font face="Arial, sans-serif">
+                                        <font size="2" style="font-size: 9pt">
+                                            <b>
+                                                &nbsp;
+                                            </b>
+                                        </font>
+                                    </font>
+                                </p>
+                            </td>
+                            <td width="125" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <h1 class="western">
+                                    <font size="2" style="font-size: 9pt">
+                                        &nbsp;
+                                    </font>
+                                </h1>
+                            </td>
+                            <td width="94" style="border-bottom: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+                                <h1 class="western"><font size="2" style="font-size: 9pt">Total</font></h1>
+                            </td>
+                            <td width="84" style="border: 1px solid #000000; padding: 0in 0.08in">
+                                <h1 class="western"><font size="2" style="font-size: 9pt">@Model.TotalAmount</font></h1>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </center>
+            <p class="western" align="CENTER">
+                <br>
+            </p>
+            <div type="FOOTER">
+                <p align="LEFT" style="margin-right: 0.25in; margin-top: 0.13in">
+                    <br>
+                </p>
+            </div>
+        }
+    }
+</body>
+</html>
+
+
+<script type="text/javascript">
+    window.print()
+    window.focus()
+</script>

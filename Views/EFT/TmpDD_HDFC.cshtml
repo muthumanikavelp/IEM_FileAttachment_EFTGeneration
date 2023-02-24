@@ -1,0 +1,182 @@
+﻿@model IEM.Areas.FLEXISPEND.Models.DDTemplate
+@{
+    int icount = 0;
+}
+
+
+<html>
+<head>
+    <style>
+        #tblsig > tbody > tr > td {
+            margin: 0px !important;
+            white-space: normal;
+            word-break: break-all;
+        }
+
+        #tbldet > tbody > tr > td, #tbldet > thead > tr > th {
+            border-bottom: 1px solid black;
+        }
+    </style>
+    </head>
+<body style="font-family:Verdana; font-size:13px !important;">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    @if (Model != null)
+    {
+        <div style="width:80%;">
+            Date:@Model.Date<br />
+            @Model.LetterNo
+        </div><br /><br />
+        <div style="width:100%; white-space: normal;
+            word-break: break-all;">
+            To,<br />
+            @*@Model.BankAddress*@
+            The Branch Manager<br />
+            HDFC Bank Limited<br />
+            115  Radha krishnan Salai,<br />
+            3rd floor, (Opp. Kalyani Hospital,)<br />
+            Mylapore,<br />
+            Chennai 600 004.
+        </div><br /><br />
+
+        <span><b>Sub: Request for Demand Drafts</b></span><br /><br />
+        <span>Ref: Our Account No. <b>00600310011700</b> @*@Model.CompanyAccountNo*@</span><br /><br />
+        <span>Kindly issue the following DDs.</span><br /><br />
+
+        <div>
+            <table style="border-top: 1px solid black; border-left: 1px solid black; font-size:13px;" width="100%">
+                <thead>
+                    <tr>
+                        <th style="width:10%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                            S.No
+                        </th>
+                        <th style="width:30%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                            DD Favoring
+                        </th>
+                        <th style="width:40%; max-width:200px; border-bottom: 1px solid black; border-right: 1px solid black;">
+                            Payable at
+                        </th>
+                        <th style="width:15%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                            Amount
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (@Model.DetailArray.Count > 1)
+                    {
+                        <tr>
+                            <td align="center" style="border-bottom: 1px solid black; border-right: 1px solid black;">1</td>
+                            <td style="border-bottom: 1px solid black; border-right: 1px solid black;">AS PER LIST</td>
+                            <td style="border-bottom: 1px solid black; border-right: 1px solid black;">AS PER LIST</td>
+                            <td style="border-bottom: 1px solid black; border-right: 1px solid black;">AS PER LIST</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td style="border-bottom: 1px solid black; border-right: 1px solid black;" align="center">1</td>
+                            <td style="border-bottom: 1px solid black; border-right: 1px solid black;">@Model.DDFavoring</td>
+                            <td style="border-bottom: 1px solid black; border-right: 1px solid black;">@Model.PayableAt</td>
+                            <td style="border-bottom: 1px solid black; border-right: 1px solid black;" align="right">@Model.Amount</td>
+                        </tr>
+                        
+                    }
+                </tbody>
+            </table>
+        </div>
+        <br />
+        <span>Amount in words: @Model.AmountInWords</span><br />
+        <br />
+        <span>
+            The DD amount and charges if any towards issue of DD may please be debited
+            to our account mentioned above.
+        </span><br /><br />
+        <span>
+            Thanking You
+        </span><br /><br />
+        <span>
+            Yours faithfully
+        </span>
+        <br />
+
+        <div style="width:100%;">
+            <table id="tblsig" width="100%" style="font-size: 13px;">
+                <tr>
+                    <td>For @System.Configuration.ConfigurationManager.AppSettings["CompanyFullName"]</td>
+                </tr>
+                <tr>
+                    <td style="line-height:50px;"><br /></td>
+                </tr>
+                <tr>
+                    <td>Authorized Signatory</td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <span>Please hand over the DD to the bearer of the memo.</span>
+        <p style="page-break-before:always"></p>
+    <!-- Break Page -->
+        
+        <br />
+        <br />
+        
+        if (@Model.DetailArray.Count > 1)
+        {
+            <div>
+                <table style="border-top: 1px solid black; border-left: 1px solid black; font-size:13px;" id="tbldet" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width:10%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                                S.No
+                            </th>
+                            <th style="width:35%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                                DD Favoring
+                            </th>
+                            <th style="width:40%; max-width:200px; border-bottom: 1px solid black; border-right: 1px solid black;">
+                                Payable at
+                            </th>
+                            <th style="width:15%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                                Amount
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var innerDet in @Model.DetailArray)
+                        {
+                            <tr>
+                                <td style="border-bottom: 1px solid black; border-right: 1px solid black;" align="center">@(++icount)</td>
+                                <td style="border-bottom: 1px solid black; border-right: 1px solid black;">@innerDet.DDFavoring</td>
+                                <td style="border-bottom: 1px solid black; border-right: 1px solid black;">@innerDet.PayableAt</td>
+                                <td style="border-bottom: 1px solid black; border-right: 1px solid black;" align="right">@innerDet.Amount</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th align="right" style="border-bottom: 1px solid black; border-right: 1px solid black;" colspan="3">
+                                Total
+                            </th>
+                            <th align="right" style="border-bottom: 1px solid black; border-right: 1px solid black;">
+                                @Model.Totalamount
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+    }
+
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+    window.print()
+    window.focus()
+</script>
